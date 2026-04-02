@@ -8,7 +8,7 @@ Link: https://lee-arts-02.github.io/conduct_your_band_with_body/
 
 [![Watch the demo](https://vumbnail.com/1179434815.jpg)](https://vimeo.com/1179434815)
 
-A short demo showing gesture-based conducting interaction using pose detection and real-time music control.
+A short demo showing how body movements are used to conduct a virtual band, controlling musical intensity, rhythm, and melody in real time.
 
 ## Overview
 This project combines **MediaPipe Pose Detection** and **Tone.js** to transform human gestures into real-time music. Instead of pressing buttons, users control musical intensity, melody, and rhythm through expressive motion.
