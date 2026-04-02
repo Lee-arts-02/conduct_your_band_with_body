@@ -7,6 +7,7 @@ Link: https://lee-arts-02.github.io/conduct_your_band_with_body/
 ## Demo
 
 [![Watch the demo](https://vumbnail.com/1179434815.jpg)](https://vimeo.com/1179434815)
+
 A short demo showing gesture-based conducting interaction using pose detection and real-time music control.
 
 ## Overview
