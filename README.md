@@ -2,7 +2,11 @@
 
 An interactive browser-based experience where users “conduct” a live band using body movements.
 
-Link:https://lee-arts-02.github.io/conduct_your_band_with_body/
+Link: https://lee-arts-02.github.io/conduct_your_band_with_body/
+
+## Demo
+
+[![Watch the demo](https://vimeo.com/1179434815?share=copy&fl=sv&fe=ci)
 
 ## Overview
 This project combines **MediaPipe Pose Detection** and **Tone.js** to transform human gestures into real-time music. Instead of pressing buttons, users control musical intensity, melody, and rhythm through expressive motion.
