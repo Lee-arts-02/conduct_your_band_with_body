@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conduct Your Band</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Welcome / onboarding -->
+    <div id="welcome" class="welcome-overlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+      <div class="welcome-card">
+        <p class="welcome-kicker">The floor is yours</p>
+        <h1 id="welcomeTitle" class="welcome-title">Conduct Your Band</h1>
+        <p class="welcome-sub">Move your hands to control the music</p>
+        <ul class="welcome-list">
+          <li><span class="ico" aria-hidden="true">↑</span> Raise your hands to increase intensity</li>
+          <li><span class="ico" aria-hidden="true">↓</span> Lower your hands to soften the music</li>
+          <li><span class="ico" aria-hidden="true">↔</span> Open your arms to wake the band</li>
+          <li><span class="ico" aria-hidden="true">🎹</span> Lead with your left — melody</li>
+          <li><span class="ico" aria-hidden="true">🥁</span> Lead with your right — rhythm</li>
+          <li><span class="ico" aria-hidden="true">✨</span> Keep moving — no need to freeze</li>
+        </ul>
+        <button type="button" id="btnWelcomeStart" class="btn btn-welcome">Start</button>
+      </div>
+    </div>
+
+    <!-- Instructions modal (Show again) -->
+    <div id="instructionsModal" class="modal" aria-hidden="true" hidden>
+      <div class="modal-backdrop" id="instructionsBackdrop"></div>
+      <div class="modal-card" role="dialog" aria-labelledby="modalTitle">
+        <h2 id="modalTitle" class="modal-title">Your conductor cheat-sheet</h2>
+        <ul class="welcome-list modal-list">
+          <li><span class="ico">↑</span> Raise your hands to increase intensity</li>
+          <li><span class="ico">↓</span> Lower your hands to soften the music</li>
+          <li><span class="ico">↔</span> Open your arms to activate instruments</li>
+          <li><span class="ico">🎹</span> Move your left hand to shape melody</li>
+          <li><span class="ico">🥁</span> Move your right hand to shape rhythm</li>
+          <li><span class="ico">✨</span> Keep moving — you don’t need to hold still</li>
+        </ul>
+        <button type="button" id="btnCloseInstructions" class="btn btn-secondary">Got it</button>
+      </div>
+    </div>
+
+    <div id="sessionRoot" class="session-root session-root--hidden">
+      <header class="header header--compact">
+        <h2 class="header-live-title">Conduct</h2>
+        <p class="tagline tagline--small">Hands up = bigger sound · Hands down = softer · Buttons for pause</p>
+      </header>
+
+      <section class="controls">
+        <button id="btnPause" type="button" class="btn btn-secondary" disabled>Pause</button>
+        <button id="btnShowInstructions" type="button" class="btn btn-ghost">Show instructions</button>
+        <label class="check">
+          <input type="checkbox" id="chkLandmarks" checked />
+          Landmarks
+        </label>
+      </section>
+
+      <div class="stage">
+        <div class="video-wrap">
+          <div class="video-overlays">
+            <div id="hintBar" class="hint-bar">
+              <span class="hint-ico" aria-hidden="true">🎼</span>
+              <span class="hint-text">Lift to swell · lower to soften · flow with the beat</span>
+            </div>
+
+            <div id="intensityPanel" class="intensity-panel">
+              <span class="intensity-title">Intensity</span>
+              <div class="intensity-labels">
+                <span>Soft</span><span>Medium</span><span>Strong</span>
+              </div>
+              <div class="intensity-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="intensityTrack">
+                <div class="intensity-fill" id="intensityFill"></div>
+              </div>
+              <div class="intensity-footer">
+                <span id="intensityBand" class="intensity-band">—</span>
+                <span id="intensityReadout" class="intensity-readout">0%</span>
+              </div>
+            </div>
+          </div>
+          <video id="video" playsinline muted></video>
+          <canvas id="overlay"></canvas>
+        </div>
+
+        <aside class="hud" id="hud">
+          <div class="hud-row">
+            <span class="label">Status</span>
+            <span class="value" id="hudStatus">idle</span>
+          </div>
+          <div class="hud-row hud-hand">
+            <span class="label">Left hand</span>
+            <div class="hand-cell">
+              <span class="value hand-tag" id="hudLeftHand">—</span>
+              <div class="mini-track" aria-hidden="true"><div class="mini-fill" id="meterL"></div></div>
+            </div>
+          </div>
+          <div class="hud-row hud-hand">
+            <span class="label">Right hand</span>
+            <div class="hand-cell">
+              <span class="value hand-tag" id="hudRightHand">—</span>
+              <div class="mini-track" aria-hidden="true"><div class="mini-fill" id="meterR"></div></div>
+            </div>
+          </div>
+          <div class="hud-row">
+            <span class="label">Wave</span>
+            <span class="value mono small" id="hudWave">—</span>
+          </div>
+          <div class="hud-row">
+            <span class="label">Gesture</span>
+            <span class="value" id="hudGesture">—</span>
+          </div>
+          <div class="hud-row">
+            <span class="label">Instruments</span>
+            <span class="value" id="hudLayers">—</span>
+          </div>
+          <div class="hud-row">
+            <span class="label">Phrases</span>
+            <span class="value mono small" id="hudPhrases">—</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
